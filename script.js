@@ -16,10 +16,10 @@ var securityLevel = 0;
  */
 function init() {
     step0();
-    document.getElementById('generation').addEventListener('click', function() {
+    document.getElementById('generation').addEventListener('click', function () {
         main();
     });
-    document.getElementById('copy').addEventListener('click', function() {
+    document.getElementById('copy').addEventListener('click', function () {
         copyCode();
     })
 }
@@ -74,13 +74,13 @@ function readCheckBox(id) {
     let state = document.getElementById(id).checked;
     switch (id) {
         case 'min': min = state;
-        break;
+            break;
         case 'maj': maj = state;
-        break;
+            break;
         case 'num': num = state;
-        break;
+            break;
         case 'car': car = state;
-        break;
+            break;
     }
 }
 
@@ -89,35 +89,40 @@ function readCheckBox(id) {
  */
 function generation() {
     let possibility = "";
+    let requiredChars = [];
 
-    if (min) {
-        for (let i = 97; i < 123; i++) {
-            possibility += String.fromCharCode(i);
+    // Tableau des types de caractères avec leurs plages ASCII et leurs conditions
+    const charTypes = [
+        { enabled: min, start: 97, end: 123 },  // Lettres minuscules
+        { enabled: maj, start: 65, end: 91 },   // Lettres majuscules
+        { enabled: num, start: 48, end: 58 },   // Chiffres
+        { enabled: car, start: 33, end: 48 }    // Caractères spéciaux
+    ];
+
+    // Pour chaque type de caractère activé, ajoute des possibilités et un caractère obligatoire
+    charTypes.forEach(type => {
+        if (type.enabled) {
+            for (let i = type.start; i < type.end; i++) {
+                possibility += String.fromCharCode(i);
+            }
+            // Ajoute un caractère obligatoire de ce type
+            requiredChars.push(String.fromCharCode(Math.floor(Math.random() * (type.end - type.start)) + type.start));
         }
-    }
+    });
 
-    if (maj) {
-        for (let i = 65; i < 91; i++) {
-            possibility += String.fromCharCode(i);
-        }
-    }
+    // Ajoute les caractères obligatoires au mot de passe
+    password = requiredChars.join('');
 
-    if (num) {
-        for (let i = 48; i < 58; i++) {
-            possibility += String.fromCharCode(i);
-        }
-    }
-
-    if (car) {
-        for (let i = 33; i < 48; i++) {
-            possibility += String.fromCharCode(i);
-        }
-    }
-
-    for (let i = 0; i < nbCar; i++) {
+    // Complète le mot de passe avec des caractères aléatoires
+    for (let i = requiredChars.length; i < nbCar; i++) {
         let index = Math.floor(Math.random() * possibility.length);
-        password += possibility.charAt(index); 
+        password += possibility.charAt(index);
     }
+
+    // Mélange le mot de passe pour une meilleure distribution des caractères
+    password = password.split('').sort(() => Math.random() - 0.5).join('');
+
+    console.log(password);
 }
 
 /**
@@ -151,9 +156,9 @@ function checkSecurityLevel() {
     if (car) {
         coefCar = 15;
     }
-    
+
     score = Math.pow(coefMin + coefMaj + coefNum + coefCar, nb);
-   
+
     if (score <= 8503056) { // 4 car + 2 critères
         securityLevel = 1;
     } else if (score <= 62523502209) { // 6 car + 3 critères
@@ -181,21 +186,21 @@ function display(val) {
         return 0;
     } else {
         document.getElementById('mdp').innerText = password;
-    }    
+    }
 
-    switch(securityLevel) {
+    switch (securityLevel) {
         case 0: step0();
-        break;
+            break;
         case 1: step1();
-        break;
+            break;
         case 2: step2();
-        break;
+            break;
         case 3: step3();
-        break;
+            break;
         case 4: step4();
-        break;
+            break;
         case 5: step5();
-        break;
+            break;
     }
 }
 
@@ -206,16 +211,16 @@ function copyCode() {
     if (password.length != 0) {
         navigator.clipboard.writeText(password);
         navigator.clipboard.readText()
-        .then(text => {
-            alert("Mot de passe copié :\n" + text);
-        })
-        .catch(err => {
-            console.error('Problème de lecture du presse-papier : ', err);
-        });
+            .then(text => {
+                alert("Mot de passe copié :\n" + text);
+            })
+            .catch(err => {
+                console.error('Problème de lecture du presse-papier : ', err);
+            });
     } else {
         alert("Aucun mot de passe généré !!!");
     }
-    
+
 }
 
 /**
@@ -228,6 +233,6 @@ function copyCode2() {
     } else {
         alert("Aucun mot de passe généré !!!");
     }
-    
+
 }
 

@@ -1,143 +1,39 @@
-var c = document.querySelector('#canvas');
-
-var ctx = c.getContext("2d");
+const boite1 = document.getElementById("boite1");
+const boite2 = document.getElementById("boite2");
+const boite3 = document.getElementById("boite3");
+const boite4 = document.getElementById("boite4");
+const boite5 = document.getElementById("boite5");
 
 function step0() {
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(10, 10, 50, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Mauvais", 15, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(65, 10, 75, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Moyen", 85, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(145, 10, 100, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Correct", 180, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(250, 10, 125, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Bon", 305, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(380, 10, 150, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Très bon", 420, 30);
+    boite1.style.backgroundColor = "grey";
+    boite2.style.backgroundColor = "grey";
+    boite3.style.backgroundColor = "grey";
+    boite4.style.backgroundColor = "grey";
+    boite5.style.backgroundColor = "grey";
 }
 
-
 function step1() {
-    ctx.fillStyle = 'red';
-    ctx.fillRect(10, 10, 50, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Mauvais", 15, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(65, 10, 75, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Moyen", 85, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(145, 10, 100, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Correct", 180, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(250, 10, 125, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Bon", 305, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(380, 10, 150, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Très bon", 420, 30);
+    step0();
+    boite1.style.backgroundColor = "red";
 }
 
 function step2() {
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(10, 10, 50, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Mauvais", 15, 30);
-    ctx.fillStyle = 'orange';
-    ctx.fillRect(65, 10, 75, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Moyen", 85, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(145, 10, 100, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Correct", 180, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(250, 10, 125, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Bon", 305, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(380, 10, 150, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Très bon", 420, 30);
+    step0();
+    boite2.style.backgroundColor = "orange";
 }
 
 function step3() {
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(10, 10, 50, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Mauvais", 15, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(65, 10, 75, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Moyen", 85, 30);
-    ctx.fillStyle = 'yellow';
-    ctx.fillRect(145, 10, 100, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Correct", 180, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(250, 10, 125, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Bon", 305, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(380, 10, 150, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Très bon", 420, 30);
+    step0();
+    boite3.style.backgroundColor = "yellow";
 }
 
 function step4() {
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(10, 10, 50, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Mauvais", 15, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(65, 10, 75, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Moyen", 85, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(145, 10, 100, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Correct", 180, 30);
-    ctx.fillStyle = 'green';
-    ctx.fillRect(250, 10, 125, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Bon", 305, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(380, 10, 150, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Très bon", 420, 30);
+    step0();
+    boite4.style.backgroundColor = "green";
 }
 
 function step5() {
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(10, 10, 50, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Mauvais", 15, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(65, 10, 75, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Moyen", 85, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(145, 10, 100, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Correct", 180, 30);
-    ctx.fillStyle = 'grey';
-    ctx.fillRect(250, 10, 125, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Bon", 305, 30);
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(380, 10, 150, 50);
-    ctx.fillStyle = 'white';
-    ctx.fillText("Très bon", 420, 30);
+    step0();
+    boite5.style.backgroundColor = "blue";
 }
 

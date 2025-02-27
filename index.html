@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,14 @@
     <title>Générateur de mot de passe</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>Générateur de mot de passe</h1>
         <img src="assets/images/lock.png" alt="Image de cadenas">
     </header>
     <main>
-        
+
         <fieldset>
             <legend>Critères du mot de passe</legend>
 
@@ -33,13 +35,19 @@
             <div>
                 <input type="checkbox" name="car" id="car"><label for="car">Caractères spéciaux</label>
             </div>
-            
+
         </fieldset>
 
         <fieldset>
             <legend>Indicateur de sécurité</legend>
-            <span id="indicateur">
-                <canvas id="canvas" width="500px" height="50px"></canvas>
+            <span id="indicateur" class="indicateur">
+                <!-- <canvas id="canvas" width="500px" height="50px"></canvas>-->
+
+                <div id="boite1" class="boite">Mauvais</div>
+                <div id="boite2" class="boite">Moyen</div>
+                <div id="boite3" class="boite">Correct</div>
+                <div id="boite4" class="boite">Bon</div>
+                <div id="boite5" class="boite">Très bon</div>
             </span>
         </fieldset>
 
@@ -54,4 +62,5 @@
     <script src="canvas.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
